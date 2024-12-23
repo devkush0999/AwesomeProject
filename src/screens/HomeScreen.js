@@ -10,7 +10,6 @@ import {
   Image,
 } from 'react-native';
 import axios from 'axios';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = ({ navigation }) => {
   const [movies, setMovies] = useState([]);
@@ -40,8 +39,8 @@ const HomeScreen = ({ navigation }) => {
   );
 
   return (
-    <View  className='bg-[#564d4d] px-3'>
-      <TextInput className='border border-red-500 bg-white p-3 rounded-lg mb-10'
+    <View  className="bg-[#564d4d] px-3">
+      <TextInput className="border border-red-500 bg-white p-3 rounded-lg mb-10"
         // style={styles.searchBar}
         placeholder="Search Movies..."
         onFocus={() => navigation.navigate('Search')}

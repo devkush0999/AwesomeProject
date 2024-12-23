@@ -1,18 +1,18 @@
 // src/screens/SplashScreen.js
-import React, { useEffect } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import React, {useEffect} from 'react';
+import {View, Text, Image, StyleSheet} from 'react-native';
 
-const SplashScreen = ({ navigation }) => {
+const SplashScreen = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
       navigation.replace('Home');
-    }, 9000);
+    }, 3000);
   }, []);
 
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: 'https://example.com/splash-image.jpg' }}
+        source={{uri: 'https://example.com/splash-image.jpg'}}
         style={styles.image}
       />
       <Text style={styles.title}>MovieApp</Text>

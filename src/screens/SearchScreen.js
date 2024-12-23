@@ -10,7 +10,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import axios from 'axios';
-import {SafeAreaView} from 'react-native-safe-area-context';
 
 const SearchScreen = ({navigation}) => {
   const [searchText, setSearchText] = useState('');
@@ -42,15 +41,17 @@ const SearchScreen = ({navigation}) => {
           className="font-extrabold text-red-600 text-xl my-2">
           {item.show.name}
         </Text>
-        
-          <Text className="text-white border border-white rounded-full p-2">
-            Rating :{" "}{item.show.rating.average}  ⭐️ {" "}language: {item.show.language}
-          </Text>
-        
-        <Text className="overflow-hidden text-white font-light my-2" numberOfLines={2}>
-          {item.show.summary?.replace(/<[^>]*>?/gm, '') || 'No summary available.'}
+        <Text className="text-white border border-white rounded-full p-2">
+          Rating : {item.show.rating.average} ⭐️ language: {item.show.language}
         </Text>
-        
+
+        <Text
+          className="overflow-hidden text-white font-light my-2"
+          numberOfLines={2}>
+          {item.show.summary?.replace(/<[^>]*>?/gm, '') ||
+            'No summary available.'}
+        </Text>
+
         <Text style={styles.info} className="font-light text-[#fff] ">
           🏢 Network: {item.show.network?.name || 'N/A'} (
           {item.show.network?.country?.name || 'N/A'})
