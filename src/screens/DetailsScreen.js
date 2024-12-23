@@ -26,7 +26,7 @@ const DetailsScreen = ({route}) => {
               {movie.type}
             </Text>
           </Text>
-          <Text className="text-[#E50914]  font-semibold">
+          <Text className="text-[#E50914] font-semibold">
             language :{' '}
             <Text className="text-white font-mono font-light">
               {movie.language}
