@@ -1,24 +1,91 @@
 // src/screens/DetailsScreen.js
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import { red } from 'react-native-reanimated/lib/typescript/Colors';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {View, Text, Image, StyleSheet} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 
-const DetailsScreen = ({ route }) => {
-  const { movie } = route.params;
-
+const DetailsScreen = ({route}) => {
+  const {movie} = route.params;
+  console.log(movie);
   return (
-    <SafeAreaView style={styles.container} >
+    <ScrollView style={styles.container} className="bg-black">
       <Image
-        source={{ uri: movie.image?.original || 'https://via.placeholder.com/300' }}
+        className="border border-red-500 px-2 rounded-[5px] "
+        source={{
+          uri: movie.image?.original || 'https://via.placeholder.com/300',
+        }}
         style={styles.image}
       />
-      <Text style={styles.title}>{movie.name}</Text>
+      <Text style={styles.title} className="text-white">
+        {movie.name}
+      </Text>
+      <View class="bg-white p-4 rounded-lg shadow-md" style={styles.box1}>
+        <View className=" m-2 p-2 rounded-lg">
+          <Text className="text-[#E50914]  font-semibold">
+            type :{' '}
+            <Text className="text-white font-mono font-light">
+              {movie.type}
+            </Text>
+          </Text>
+          <Text className="text-[#E50914]  font-semibold">
+            language :{' '}
+            <Text className="text-white font-mono font-light">
+              {movie.language}
+            </Text>
+          </Text>
+          <Text className="text-[#E50914]  font-semibold">
+            status :{' '}
+            <Text className="text-white font-mono font-light">
+              {movie.status}
+            </Text>
+          </Text>
+          <Text className="text-[#E50914]  font-semibold">
+            Published :{' '}
+            <Text className="text-white font-mono font-light">
+              {movie.premiered}
+            </Text>
+          </Text>
+          <Text className="text-[#E50914]  font-semibold">
+            rating :{' '}
+            <Text className="text-white font-mono font-light">
+              {movie.rating.average} ⭐️
+            </Text>
+          </Text>
+        </View>
+        <View className="border m-2 p-2 rounded-lg">
+          <Text className="text-[#E50914]  font-semibold">
+            Genres: {'  '}{' '}
+            <Text className="text-white font-mono font-light">
+              {movie.genres}
+            </Text>
+          </Text>
+          <Text className="text-[#E50914]  font-semibold">
+            schedule :{' '}
+            <Text className="text-white font-mono font-light">
+              {movie.schedule.days}
+            </Text>
+          </Text>
+          <Text className="text-[#E50914]  font-semibold">
+            runtime :{' '}
+            <Text className="text-white font-mono font-light">
+              {movie.runtime}
+            </Text>
+          </Text>
+          <Text className="text-[#E50914]  font-semibold">
+            averageRuntime :{' '}
+            <Text className="text-white font-mono font-light">
+              {movie.averageRuntime}
+            </Text>
+          </Text>
+        </View>
+      </View>
+
       <Text style={styles.summary}>
+        <Text className="text-red-500">Overview : </Text>
+      </Text>
+      <Text className="text-white italic">
         {movie.summary?.replace(/<[^>]*>?/gm, '') || 'No summary available.'}
       </Text>
-      <Text className='text-red-500'>hii</Text>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
@@ -26,11 +93,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    marginTop :20,
+    marginTop: 20,
   },
   image: {
-    width: '100%',
-    height: 300,
+    width: 390,
+    height: 600,
     marginBottom: 10,
   },
   title: {
@@ -38,7 +105,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
   },
+  box1: {
+    flexDirection: 'row',
+  },
   summary: {
+    flexDirection: 'row',
     fontSize: 16,
     color: '#555',
   },

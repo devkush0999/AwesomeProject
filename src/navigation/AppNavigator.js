@@ -12,7 +12,7 @@ const Stack = createStackNavigator();
 
 const AppNavigator = () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
+    <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: true , headerStyle: { backgroundColor: '#564d4d' }, headerTintColor: '#fff' }}>
       <Stack.Screen name="Splash" component={SplashScreen} screenOptions={{ headerShown: false }}/>
       <Stack.Screen name="Home" component={HomeScreen} screenOptions={{ headerShown: false , title: 'Awesome app'}}/>
       <Stack.Screen name="Search" component={SearchScreen} screenOptions={{ headerShown: false }}/>

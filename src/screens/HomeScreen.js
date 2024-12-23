@@ -22,17 +22,17 @@ const HomeScreen = ({ navigation }) => {
   }, []);
 
   const renderMovie = ({ item }) => (
-    <TouchableOpacity className='bg-white border rounded-lg h-50 overflow-hidden'
+    <TouchableOpacity className="bg-black border rounded-lg h-50 overflow-hidden"
       style={styles.card}
       onPress={() => navigation.navigate('Details', { movie: item.show })}
     >
-      <Image
+      <Image className='m-1'
         source={{ uri: item.show.image?.medium || 'https://via.placeholder.com/150' }}
         style={styles.thumbnail}
       />
       <View style={styles.info}>
-        <Text style={styles.title}>{item.show.name}</Text>
-        <Text className='truncate' style={styles.summary}>
+        <Text className="font-extrabold text-[#df0707] text-xl my-3">{item.show.name}</Text>
+        <Text className="truncate text-white font-light pr-2" numberOfLines={4}>
           {item.show.summary?.replace(/<[^>]*>?/gm, '') || 'No summary available.'}
         </Text>
       </View>
@@ -40,18 +40,18 @@ const HomeScreen = ({ navigation }) => {
   );
 
   return (
-    <SafeAreaView style={styles.container} className='bg-black'>
-      <TextInput className='border border-red-500 bg-white'
-        style={styles.searchBar}
+    <View  className='bg-[#564d4d] px-3'>
+      <TextInput className='border border-red-500 bg-white p-3 rounded-lg mb-10'
+        // style={styles.searchBar}
         placeholder="Search Movies..."
         onFocus={() => navigation.navigate('Search')}
       />
-      <FlatList className=''
+      <FlatList
         data={movies}
         keyExtractor={(item) => item.show.id.toString()}
         renderItem={renderMovie}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
