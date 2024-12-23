@@ -82,7 +82,7 @@ const DetailsScreen = ({route}) => {
       <Text style={styles.summary}>
         <Text className="text-red-500">Overview : </Text>
       </Text>
-      <Text className="text-white italic">
+      <Text className="text-white italic pb-6 mb-5 px-1 mx-2">
         {movie.summary?.replace(/<[^>]*>?/gm, '') || 'No summary available.'}
       </Text>
     </ScrollView>
